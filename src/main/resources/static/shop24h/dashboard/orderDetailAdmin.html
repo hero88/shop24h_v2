@@ -1,0 +1,410 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+      <title>Admin: Chi Tiết Đơn Hàng</title>
+
+      <!--     Fonts and icons     -->
+      <link
+         rel="stylesheet"
+         type="text/css"
+         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+      />
+
+      <!-- Material Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+
+      <!-- CSS Files -->
+
+      <link id="pagestyle" href="../assets/plugin/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+
+      <!--FONT AWESOME-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+      <!--Boottrap, JQuery-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <!--MY SCRIPT-->
+      <script src="../assets/js/orderDetailAdmin/orderDetailAdmin.js"></script>
+   </head>
+
+   <body class="g-sidenav-show bg-gray-100">
+      <aside
+         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
+         style="background-color: var(--main-color) !important"
+         id="sidenav-main"
+      >
+         <div class="sidenav-header">
+            <i
+               class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+               aria-hidden="true"
+               id="iconSidenav"
+            ></i>
+            <a class="navbar-brand m-0" href="../home/home.html" target="_blank">
+               <img
+                  src="https://hoanghamobile.com/Content/web/img/logo-text.png"
+                  class="navbar-brand-img h-100"
+                  alt="main_logo"
+                  style="padding: 3px; background-color: white"
+               />
+            </a>
+         </div>
+
+         <hr class="horizontal light mt-0 mb-2" />
+
+         <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Quản Trị</h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/productAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-brands fa-product-hunt"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Sản Phẩm</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/orderAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-list"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Đơn Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/customerAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Khách Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Báo Cáo</h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportOrderAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Đơn Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportCustomerAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">account_box</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Khách Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportProductAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">featured_play_list</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Sản Phẩm</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/userAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user"></i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Tài Khoản</span>
+                  </a>
+               </li>
+
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">
+                     Account pages
+                  </h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/profileAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-address-card"></i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Hồ Sơ Cá Nhân</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="#" id="btn-logout">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">login</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Đăng Xuất</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </aside>
+
+      <main class="main-content border-radius-lg">
+         <!-- Navbar -->
+
+         <nav
+            class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
+            id="navbarBlur"
+            data-scroll="true"
+         >
+            <div class="container-fluid py-1 px-3">
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                     <li class="breadcrumb-item text-sm">
+                        <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                     </li>
+                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">OrderDetail</li>
+                  </ol>
+               </nav>
+               <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                  <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                     <div class="input-group input-group-outline"></div>
+                  </div>
+                  <ul class="navbar-nav justify-content-end">
+                     <li class="nav-item d-flex align-items-center">
+                        <a href="#" class="nav-link text-body font-weight-bold px-0 navbar-avatar"> </a>
+                     </li>
+                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                           <div class="sidenav-toggler-inner">
+                              <i class="sidenav-toggler-line"></i>
+                              <i class="sidenav-toggler-line"></i>
+                              <i class="sidenav-toggler-line"></i>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+
+         <div class="container-fluid py-4 px-4">
+            <!-- ---------------------------MAIN------------------------------------- -->
+            <div class="row">
+               <div class="col-12 text-center">
+                  <h3>Chi Tiết Đơn Hàng</h3>
+               </div>
+            </div>
+
+            <div class="row mt-6">
+               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-9 col-8">
+                  <select name="" id="select-addProduct" class="form-control"></select>
+               </div>
+               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-4">
+                  <button id="btn-addProduct" class="btn btn-success w-100">Thêm</button>
+               </div>
+            </div>
+
+            <!-- -------Item-------------- -->
+            <div id="contain-orderDetail">
+               <!-- ------------------ TO DO ------------------------------------------ -->
+            </div>
+
+            <div class="row">
+               <!-- -----------Khách Hàng---------------- -->
+               <div class="col-12 col-sm-6">
+                  <div class="row form-group">
+                     <div class="col-12">
+                        <h5>Khách Hàng</h5>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-3">
+                        <label for="">Tên Khách Hàng</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-6">
+                        <input type="text" name="" id="inp-fullName" class="form-control" disabled />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-3">
+                        <label for="">SĐT Khách Hàng</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-6">
+                        <input type="text" name="" id="inp-phoneNumber" class="form-control" disabled />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-3">
+                        <label for="">Email</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-6">
+                        <input type="text" name="" id="inp-email" class="form-control" disabled />
+                     </div>
+                  </div>
+               </div>
+
+               <!-- -----------Đơn Hàng---------------- -->
+               <div class="col-12 col-sm-6">
+                  <div class="row form-group">
+                     <div class="col-12">
+                        <h5>Đơn Hàng</h5>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Mã Đơn Hàng</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <input type="text" name="" id="inp-orderCode" class="form-control" disabled />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Ngày Đặt Hàng</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <input type="text" name="" id="inp-orderDate" class="form-control" disabled />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Tỉnh/Thành Phố</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <select name="" id="select-province" class="form-control"></select>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Quận/Huyện</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <select name="" id="select-district" class="form-control"></select>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Phường/Xã</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <select name="" id="select-ward" class="form-control"></select>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Địa Chỉ</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <input type="text" name="" id="inp-address" class="form-control" />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <label for="">Lời Nhắn</label>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <textarea name="" id="textarea-comments" rows="5" class="form-control"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <h5 class="text-danger">Tổng Giá:</h5>
+                     </div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7">
+                        <h5 style="font-weight: bold" id="inp-totalPrice" class="text-danger"></h5>
+                     </div>
+                  </div>
+                  <div class="row form-group">
+                     <div class="col-4 col-sm-3 col-md-3 col-lg-4 col-xl-3"></div>
+                     <div class="col-8 col-sm-9 col-md-9 col-lg-8 col-xl-7 justify-content-end d-flex">
+                        <button class="btn btn-primary" style="font-weight: bold" id="btn-update">Cập Nhật</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+
+      <!--Vùng modal thông báo-->
+      <div id="notice-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 5px 5px 10px rgb(208, 219, 219)">
+               <div class="modal-body">
+                  <div>
+                     <h6 class="text-center">dsadsa</h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--   Core JS Files   -->
+      <script src="../assets/plugin/perfect-scrollbar.min.js"></script>
+
+      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/plugin/material-dashboard.min.js"></script>
+   </body>
+</html>
+<style>
+   /* PHẦN CSS CHUNG
+   -------------------------------- */
+   :root {
+      --main-color: #00483d;
+   }
+
+   body {
+      font-family: "Segoe UI";
+   }
+
+   div#sidenav-collapse-main {
+      height: 100% !important;
+   }
+
+   /* Modal notice */
+   #notice-modal > .modal-dialog {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+</style>

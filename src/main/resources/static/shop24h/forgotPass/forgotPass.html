@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ForgotPass</title>
+
+      <!--Boottrap, JQuery-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <!--FONT AWESOME-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+      <!--JQUERY SCRIPT -->
+      <script src="../assets/js/forgotPass/forgotPass.js"></script>
+   </head>
+
+   <!--Start of Tawk.to Script-->
+   <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+         Tawk_LoadStart = new Date();
+      (function () {
+         var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+         s1.async = true;
+         s1.src = "https://embed.tawk.to/6449659031ebfa0fe7fa993c/1guvb9g7q";
+         s1.charset = "UTF-8";
+         s1.setAttribute("crossorigin", "*");
+         s0.parentNode.insertBefore(s1, s0);
+      })();
+   </script>
+   <!--End of Tawk.to Script-->
+
+   <body>
+      <div id="loading">
+         <img
+            id="loading-image"
+            src="https://2.bp.blogspot.com/-AEq7PhrFev0/V8uoZHZ5zOI/AAAAAAAACAY/Ck3z6Gu2hbcMPjhh7ASYeYTWItP5L2nMQCLcB/s1600/1.gif"
+            alt="Loading..."
+         />
+      </div>
+
+      <div id="home-header">
+         <!-- 1. HEADER - NAVBAR MENU -->
+         <section id="header-navbar">
+            <nav class="navbar navbar-expand-sm container">
+               <!-- Brand/logo -->
+               <a class="navbar-brand pt-2" href="../home/home.html">
+                  <img src="https://hoanghamobile.com/Content/web/img/logo-text.png" alt="logo" />
+               </a>
+               <div class="w-100 pt-2 order-sm-2 order-3" id="header-divSearch">
+                  <input
+                     type="text"
+                     class="form-control"
+                     id="header-inpSearch"
+                     style="border-radius: 20px"
+                     placeholder="Hôm nay bạn cần tìm gì ? "
+                  />
+                  <button
+                     id="header-btnSearch"
+                     class="rounded-circle"
+                     style="background-color: var(--main-color); color: white"
+                  >
+                     <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+               </div>
+
+               <div class="pt-2 order-sm-3 order-2 abc">
+                  <ul class="navbar-nav">
+                     <li class="nav-item px-2" style="position: relative">
+                        <a
+                           class="nav-link"
+                           href="../order/order.html"
+                           style="color: var(--main-color)"
+                        >
+                           <i class="fa-solid fa-2x fa-cart-shopping"></i>
+                           <div
+                              style="
+                                 position: absolute;
+                                 background-color: #ff6801;
+                                 color: white;
+                                 padding: 1px 8px;
+                                 border-radius: 50%;
+                                 top: 0;
+                                 right: 0px;
+                              "
+                           >
+                              <span id="span-quantityItem">0</span>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="nav-item dropdown px-2">
+                        <a
+                           class="nav-link"
+                           href="#"
+                           id="navbarDropdown"
+                           data-toggle="dropdown"
+                           style="color: var(--main-color)"
+                        >
+                           <i class="fa-solid fa-2x fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           <a class="dropdown-item signUp-navbar" href="#">Đăng Ký</a>
+                           <a class="dropdown-item signIn-navbar" href="#">Đăng Nhập</a>
+                           <a
+                              class="dropdown-item myOrder-navbar"
+                              href="../myOrder/myOrder.html?status=Chờ Xác Nhận"
+                              style="display: none"
+                              >Đơn Hàng Của Tôi</a
+                           >
+
+                           <a
+                              class="dropdown-item pageAdmin-navbar"
+                              href="../dashboard/productAdmin.html"
+                              style="display: none"
+                              >Admin: Quản Trị</a
+                           >
+                           <a
+                              class="dropdown-item info-navbar"
+                              href="../info/info.html"
+                              style="display: none"
+                              >Hồ Sơ</a
+                           >
+
+                           <a class="dropdown-item logout-navbar" href="#" style="display: none">Đăng Xuất</a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+         </section>
+
+         <!-- 2. HEADER LIST PRODUCT-->
+         <section id="header-listProduct" class="container">
+            <ul id="header-ulListProduct">
+               <li>
+                  <div>
+                     <a href="../search/search.html?list=Điện Thoại">
+                        <div>
+                           <i class="fa-solid fa-2x fa-mobile-screen"></i>
+                        </div>
+                        <span>Điện Thoại</span>
+                     </a>
+                  </div>
+               </li>
+               <li>
+                  <div>
+                     <a href="../search/search.html?list=Đồng Hồ">
+                        <div>
+                           <i class="fa-sharp fa-2x fa-regular fa-clock"></i>
+                        </div>
+                        <span>Đồng Hồ</span>
+                     </a>
+                  </div>
+               </li>
+               <li>
+                  <div>
+                     <a href="../search/search.html?list=Laptop">
+                        <div>
+                           <i class="fa-solid fa-2x fa-laptop"></i>
+                        </div>
+                        <span>Laptop</span>
+                     </a>
+                  </div>
+               </li>
+               <li>
+                  <div>
+                     <a href="../search/search.html?list=HeadPhone">
+                        <div>
+                           <i class="fa-solid fa-2x fa-headphones"></i>
+                        </div>
+                        <span>Tai Nghe</span>
+                     </a>
+                  </div>
+               </li>
+               <li>
+                  <div>
+                     <a href="../search/search.html?list=Tablet">
+                        <div>
+                           <i class="fa-solid fa-2x fa-tablet"></i>
+                        </div>
+                        <span>Tablet</span>
+                     </a>
+                  </div>
+               </li>
+
+               <li>
+                  <div>
+                     <a href="../search/search.html?list=Tivi">
+                        <div>
+                           <i class="fa-solid fa-2x fa-tv"></i>
+                        </div>
+                        <span>Smart TV</span>
+                     </a>
+                  </div>
+               </li>
+            </ul>
+         </section>
+      </div>
+
+      <div id="home-main" class="pt-5">
+         <!--MAIN INFO-->
+         <section class="container">
+            <div class="row">
+               <div class="col-12 col-md-6">
+                  <div>
+                     <img
+                        src="https://data.kenhsinhvien.vn/hinhanh/2013/03/12/forgot-pass-659087-2548.gif"
+                        alt=""
+                        style="width: 100%"
+                     />
+                  </div>
+               </div>
+
+               <div class="col-12 col-md-6 mt-4 mt-md-0">
+                  <div class="row form-group">
+                     <div class="col-sm-3 col-12">
+                        <label for="">Điện Thoại</label>
+                     </div>
+                     <div class="col-12 col-sm-9">
+                        <input type="text" name="" id="inp-forgot-username" class="form-info" />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-sm-3 col-12">
+                        <label for="">Câu Hỏi</label>
+                     </div>
+                     <div class="col-12 col-sm-9">
+                        <select class="form-info" id="select-forgot-question">
+                           <option value="">Cầu thủ bạn yêu thích ?</option>
+                           <option value="">Ca sỹ bạn yêu thích ?</option>
+                           <option value="">Sản phẩm bạn yêu thích ?</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-sm-3 col-12">
+                        <label for="">Trả Lời</label>
+                     </div>
+                     <div class="col-12 col-sm-9">
+                        <input type="text" name="" id="inp-forgot-answer" class="form-info" />
+                     </div>
+                  </div>
+
+                  <div class="row form-group">
+                     <div class="col-12 text-right">
+                        <button class="btn btn-success" id="btn-confirm">Xác Nhận</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!--4. MAIN LOGO-->
+         <section id="main-logo" class="container">
+            <ul>
+               <li>
+                  <i class="fa-regular fa-circle-check fa-3x"></i>
+                  <div>
+                     <span>Sản Phẩm</span>
+                     <strong>CHÍNH HÃNG</strong>
+                  </div>
+               </li>
+
+               <li>
+                  <i class="fa-solid fa-truck fa-3x"></i>
+                  <div>
+                     <span>Vận Chuyển</span>
+                     <strong>MIỄN PHÍ</strong>
+                  </div>
+               </li>
+
+               <li>
+                  <i class="fa-sharp fa-solid fa-headphones fa-3x"></i>
+                  <div>
+                     <span>Hotline</span>
+                     <strong>19001560</strong>
+                  </div>
+               </li>
+
+               <li>
+                  <i class="fa-solid fa-repeat fa-3x"></i>
+                  <div>
+                     <span>Đổi Trả</span>
+                     <strong>DỄ DÀNG</strong>
+                  </div>
+               </li>
+            </ul>
+         </section>
+      </div>
+
+      <div id="home-footer" class="container">
+         <section id="footer-info">
+            <div class="row">
+               <div class="col-md-3 col-sm-6">
+                  <ul>
+                     <li style="font-size: 18px"><strong>Mua hàng trả góp</strong></li>
+                     <li>Tra cứu đơn hàng</li>
+                     <li>Chính sách bảo hành</li>
+                     <li>Chính sách bảo mật</li>
+                     <li>Chính sách giải quyết khiếu nại</li>
+                  </ul>
+               </div>
+               <div class="col-md-3 col-sm-6">
+                  <ul>
+                     <li style="font-size: 18px"><strong>Thông Tin Liên Hệ</strong></li>
+                     <li>Bán hàng Online</li>
+                     <li>Hỗ Trợ Kỹ thuật</li>
+                     <li>Chăm sóc Khách Hàng</li>
+                  </ul>
+               </div>
+               <div class="col-md-3 col-sm-6">
+                  <ul>
+                     <li style="font-size: 18px"><strong>Hệ thống 124 siêu thị trên toàn quốc</strong></li>
+                     <li>124 siêu thị trên toàn quốc</li>
+                     <li>Tổng đài</li>
+                     <li>
+                        <p
+                           class="bg-white"
+                           style="
+                              color: var(--main-color);
+                              font-weight: bold;
+                              font-size: 18px;
+                              display: inline-block;
+                              padding: 2px 10px;
+                              border-radius: 10px;
+                           "
+                        >
+                           1900.1560
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-md-3 col-sm-6">
+                  <ul>
+                     <li style="font-size: 18px"><strong>Hình thức vận chuyển</strong></li>
+                     <li>
+                        <img src="https://hoanghamobile.com/Content/web/img/nhattin.jpg" alt="" />
+                        <img src="https://hoanghamobile.com/Content/web/img/vnpost.jpg" alt="" />
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-12 d-flex justify-content-center text-center">
+                  <div class="w-75">
+                     <p>
+                        © 2020. CÔNG TY CỔ PHẦN XÂY DỰNG VÀ ĐẦU TƯ THƯƠNG MẠI . MST: 0000000000. (Đăng ký lần đầu: Ngày
+                        00 tháng 00 năm 2014, Đăng ký thay đổi ngày 00/00/2022)
+                     </p>
+                     <p>GP số 000/GP-TTĐ cấp ngày 22/01/2021</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+
+      <!--Modal SignIn-->
+      <div id="signIn-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="row">
+                  <div class="col-12 col-md-4">
+                     <div
+                        style="background-color: #fbe9e7; height: 100%; width: 100%"
+                        class="d-flex align-items-center justify-content-center"
+                     >
+                        <img src="${gLocalhost}/product-photos/login-bg.png" alt="" class="img-fluid p-2" />
+                     </div>
+                  </div>
+                  <div class="col-12 col-md-8 p-4">
+                     <div class="form-group row">
+                        <div class="col-12">
+                           <h3>Đăng nhập</h3>
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Số Điện Thoại</label>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="text" class="form-control" id="inp-signIn-phoneNumber" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Mật Khẩu</label>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="password" class="form-control" id="inp-signIn-password" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-12 text-right">
+                           <button class="btn btn-success w-50" id="btn-signIn-modal">Đăng Nhập</button>
+                           <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Hủy</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Modal SignUp-->
+      <div id="signUp-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="row">
+                  <div class="col-12 col-md-4">
+                     <div
+                        style="background-color: #fbe9e7; height: 100%; width: 100%"
+                        class="d-flex align-items-center justify-content-center"
+                     >
+                        <img src="${gLocalhost}/product-photos/login-bg.png" alt="" class="img-fluid p-2" />
+                     </div>
+                  </div>
+                  <div class="col-12 col-md-8 p-4">
+                     <div class="form-group row">
+                        <div class="col-12">
+                           <h3>Đăng ký</h3>
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Số Điện Thoại</label>
+                           <span style="color: red">*</span>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="text" class="form-control" id="inp-signUp-phoneNumber" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Họ Tên</label>
+                           <span style="color: red">*</span>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="text" class="form-control" id="inp-signUp-fullName" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Email</label>
+                           <span style="color: red">*</span>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="text" class="form-control" id="inp-signUp-email" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Mật Khẩu</label>
+                           <span style="color: red">*</span>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="password" class="form-control" id="inp-signUp-password" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-3">
+                           <label for="">Xác Nhận MK</label>
+                           <span style="color: red">*</span>
+                        </div>
+                        <div class="col-sm-9">
+                           <input type="password" class="form-control" id="inp-signUp-confirm-password" />
+                        </div>
+                     </div>
+
+                     <div class="form-group row">
+                        <div class="col-sm-12 text-right">
+                           <button class="btn btn-success w-50" id="btn-signUp-modal">Đăng Ký</button>
+                           <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Hủy</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Modal Change Password-->
+      <div id="changePassword-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content p-4">
+               <div class="row form-group">
+                  <div class="col-3">
+                     <label for="">Mật Khẩu Cũ</label>
+                  </div>
+                  <div class="col-9">
+                     <input type="text" name="" id="inp-oldPass" class="form-info" />
+                  </div>
+               </div>
+
+               <div class="row form-group">
+                  <div class="col-3">
+                     <label for="">Mật Khẩu Mới</label>
+                  </div>
+                  <div class="col-9">
+                     <input type="text" name="" id="inp-newPass" class="form-info" />
+                  </div>
+               </div>
+
+               <div class="form-group row">
+                  <div class="col-sm-12 text-right">
+                     <button class="btn btn-success w-50" id="btn-changePassword-modal">Xác Nhận</button>
+                     <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Hủy</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Vùng modal thông báo-->
+      <div id="notice-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 5px 5px 10px rgb(208, 219, 219)">
+               <div class="modal-body">
+                  <div>
+                     <h6 class="text-center"></h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+   <style>
+      /* PHẦN CSS CHUNG
+      -------------------------------- */
+      :root {
+         --main-color: #00483d;
+      }
+
+      body {
+         font-family: "Segoe UI";
+         background-color: #f4f4f4;
+      }
+
+      /* LOADING */
+      #loading {
+         width: 100%;
+         height: 100%;
+         top: 0px;
+         left: 0px;
+         position: fixed;
+         display: flex; /* Ẩn ban đầu */
+         justify-content: center;
+         align-items: center;
+         z-index: 99;
+         visibility: hidden;
+      }
+      /* PHẦN CSS HEADER
+      -------------------------------- */
+      /* NARBAR     */
+      #header-divSearch {
+         position: relative;
+      }
+
+      #header-btnSearch {
+         position: absolute;
+         top: 0.7rem;
+         right: 0.3rem;
+      }
+
+      .navbar-nav {
+         display: flex;
+         flex-direction: row;
+         justify-content: end;
+      }
+
+      .dropdown-menu {
+         left: -160%;
+      }
+
+      @media (max-width: 580px) {
+         .navbar-brand {
+            width: 65%;
+         }
+
+         .navbar-brand img {
+            max-width: 100%;
+         }
+
+         .navbar-nav .dropdown-menu {
+            position: absolute;
+            left: -260%;
+         }
+      }
+
+      /* SIGN IN & SIGN UP */
+      #btn-signIn-modal {
+         padding: 10px 15px;
+         font-size: 15px;
+         font-weight: bold;
+         color: white;
+         background: linear-gradient(#009981, var(--main-color));
+         border: none;
+         border-radius: 10px;
+      }
+
+      #btn-signIn-modal:hover {
+         background: var(--main-color);
+      }
+
+      #btn-signUp-modal {
+         padding: 10px 15px;
+         font-size: 15px;
+         font-weight: bold;
+         color: white;
+         background: linear-gradient(#009981, var(--main-color));
+         border: none;
+         border-radius: 10px;
+      }
+
+      #btn-signUp-modal:hover {
+         background: var(--main-color);
+      }
+
+      /* #signIn-modal .modal-dialog {
+         max-width: 50%;
+      } */
+
+      @media screen and (max-width: 499px) {
+         #signIn-modal .modal-dialog {
+            max-width: 100%;
+         }
+      }
+
+      @media screen and (min-width: 500px) and (max-width: 1399px) {
+         #signIn-modal .modal-dialog {
+            max-width: 75%;
+         }
+      }
+
+      @media screen and (min-width: 1400px) {
+         #signIn-modal .modal-dialog {
+            max-width: 50%;
+         }
+      }
+
+      @media screen and (max-width: 499px) {
+         #signUp-modal .modal-dialog {
+            max-width: 100%;
+         }
+      }
+
+      @media screen and (min-width: 500px) and (max-width: 1399px) {
+         #signUp-modal .modal-dialog {
+            max-width: 75%;
+         }
+      }
+
+      @media screen and (min-width: 1400px) {
+         #signUp-modal .modal-dialog {
+            max-width: 50%;
+         }
+      }
+
+      /* UL PRODUCT */
+      #header-ulListProduct {
+         list-style: none;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         background-color: var(--main-color);
+         padding: 5px;
+      }
+
+      #header-ulListProduct > li > div > a:hover {
+         border-bottom: solid 4px orange;
+      }
+
+      #header-ulListProduct > li > div {
+         text-align: center;
+         width: 100px;
+         padding: 5px;
+      }
+
+      #header-ulListProduct a {
+         text-decoration: none;
+         color: inherit;
+      }
+
+      #header-ulListProduct {
+         color: white;
+      }
+
+      /* PHẦN CSS MAIN
+      -------------------------------- */
+      /* FORM  */
+      .form-info {
+         background-color: #e5e5e5;
+         width: 100%;
+         border: none;
+         border-radius: 10px;
+         height: 38px;
+         padding: 10px;
+         font-size: 14px;
+      }
+
+      .form-info:focus {
+         outline: none;
+      }
+
+      /* LOGO */
+      #main-logo ul {
+         list-style: none;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         padding: 20px 0px;
+      }
+
+      #main-logo li {
+         text-align: center;
+         padding-top: 15px;
+      }
+
+      @media (max-width: 768px) {
+         #main-logo li {
+            width: 50%;
+         }
+      }
+
+      #main-logo i {
+         color: var(--main-color);
+      }
+
+      /* PHẦN CSS FOOTER
+      -------------------------------- */
+      #footer-info {
+         background-color: var(--main-color);
+         padding: 15px 0px;
+         color: white;
+         border-radius: 10px;
+      }
+
+      #footer-info ul {
+         list-style: none;
+         justify-content: space-between;
+      }
+   </style>
+</html>

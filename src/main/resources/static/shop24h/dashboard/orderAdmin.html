@@ -1,0 +1,712 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+      <title>Admin: Đơn Hàng</title>
+
+      <!--     Fonts and icons     -->
+      <link
+         rel="stylesheet"
+         type="text/css"
+         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+      />
+
+      <!-- Material Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+
+      <!-- CSS Files -->
+
+      <link id="pagestyle" href="../assets/plugin/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+
+      <!--FONT AWESOME-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+      <!--Boottrap, JQuery-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <!--DataTable-->
+      <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css" />
+
+      <!-- daterange picker -->
+      <link rel="stylesheet" href="../assets/plugin/daterangepicker/daterangepicker.css" />
+
+      <!-- Bootstrap Color Picker -->
+      <link rel="stylesheet" href="../assets/plugin/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" />
+      <!-- Tempusdominus Bootstrap 4 -->
+      <link rel="stylesheet" href="../assets/plugin/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+      <!-- ------------------------------------------------------------------------- -->
+
+      <!--MY SCRIPT-->
+      <script src="../assets/js/orderAdmin/orderAdmin.js"></script>
+   </head>
+
+   <body class="g-sidenav-show">
+      <aside
+         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
+         style="background-color: var(--main-color) !important"
+         id="sidenav-main"
+      >
+         <div class="sidenav-header">
+            <i
+               class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+               aria-hidden="true"
+               id="iconSidenav"
+            ></i>
+            <a class="navbar-brand m-0" href="../home/home.html" target="_blank">
+               <img
+                  src="https://hoanghamobile.com/Content/web/img/logo-text.png"
+                  class="navbar-brand-img h-100"
+                  alt="main_logo"
+                  style="padding: 3px; background-color: white"
+               />
+            </a>
+         </div>
+
+         <hr class="horizontal light mt-0 mb-2" />
+
+         <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Quản Trị</h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/productAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-brands fa-product-hunt"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Sản Phẩm</span>
+                  </a>
+               </li>
+
+               <li class="nav-item active bg-gradient-primary">
+                  <a class="nav-link text-white" href="../dashboard/orderAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-list"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Đơn Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/customerAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Khách Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Báo Cáo</h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportOrderAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Đơn Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportCustomerAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">account_box</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Khách Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportProductAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">featured_play_list</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Sản Phẩm</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/userAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user"></i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Tài Khoản</span>
+                  </a>
+               </li>
+
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">
+                     Account pages
+                  </h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/profileAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-address-card"></i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Hồ Sơ Cá Nhân</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="#" id="btn-logout">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">login</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Đăng Xuất</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </aside>
+
+      <main class="main-content border-radius-lg">
+         <!-- Navbar -->
+
+         <nav
+            class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
+            id="navbarBlur"
+            data-scroll="true"
+         >
+            <div class="container-fluid py-1 px-3">
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                     <li class="breadcrumb-item text-sm">
+                        <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                     </li>
+                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Đơn Hàng</li>
+                  </ol>
+               </nav>
+               <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                  <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                     <div class="input-group input-group-outline"></div>
+                  </div>
+                  <ul class="navbar-nav justify-content-end">
+                     <li class="nav-item d-flex align-items-center">
+                        <a href="#" class="nav-link text-body font-weight-bold px-0 navbar-avatar"> </a>
+                     </li>
+                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                           <div class="sidenav-toggler-inner">
+                              <i class="sidenav-toggler-line"></i>
+                              <i class="sidenav-toggler-line"></i>
+                              <i class="sidenav-toggler-line"></i>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+
+         <div class="container-fluid py-4">
+            <!-- ---------------------------MAIN------------------------------------- -->
+            <div class="text-center">
+               <h2>Dach Sách Sản Phẩm</h2>
+            </div>
+            <div class="my-4">
+               <div class="row">
+                  <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 my-1">
+                     <div class="input-group">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i> </span>
+                        </div>
+                        <input
+                           type="text"
+                           class="form-control float-right"
+                           id="reservation"
+                           readonly
+                           style="background-color: white"
+                        />
+                     </div>
+                  </div>
+                  <!-- /.input group -->
+                  <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-12 my-1">
+                     <select name="" id="select-status-find" class="form-control">
+                        <option value="All">Trạng Thái</option>
+                        <option value="Chờ Xác Nhận">Chờ Xác Nhận</option>
+                        <option value="Đang Giao">Đang Giao</option>
+                        <option value="Đã Giao">Đã Giao</option>
+                     </select>
+                  </div>
+
+                  <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 my-1">
+                     <select name="" id="select-customer" class="form-control">
+                        <option value="0">Khách Hàng</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+
+            <div class="my-4">
+               <div class="row">
+                  <div class="col-xl-2 col-sm-4 col-12">
+                     <div class="box box-waitConfirm">
+                        <div style="background-color: rgba(0, 0, 0, 0.1)">
+                           <p style="font-weight: bold">Chờ Xác Nhận</p>
+                        </div>
+                        <div>
+                           <h3 style="font-weight: bold; color: white" id="value-waitConfirm"></h3>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xl-2 col-sm-4 col-12">
+                     <div class="box box-delivery">
+                        <div style="background-color: rgba(0, 0, 0, 0.1)">
+                           <p style="font-weight: bold">Đang Giao</p>
+                        </div>
+                        <div>
+                           <h3 style="font-weight: bold; color: white" id="value-delivery"></h3>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xl-2 col-sm-4 col-12">
+                     <div class="box box-success">
+                        <div style="background-color: rgba(0, 0, 0, 0.1)">
+                           <p style="font-weight: bold">Đã Giao</p>
+                        </div>
+                        <div>
+                           <h3 style="font-weight: bold; color: white" id="value-success"></h3>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xl-6 col-sm-12 col-12">
+                     <div class="box box-totalPrice">
+                        <div style="background-color: rgba(0, 0, 0, 0.1)">
+                           <p style="font-weight: bold">Tổng tiền</p>
+                        </div>
+                        <div>
+                           <h3 style="font-weight: bold; color: white" id="value-totalPrice"></h3>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="table-responsive">
+               <table id="order-table">
+                  <thead>
+                     <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Mã ĐH</th>
+                        <th scope="col">Tên KH</th>
+                        <th scope="col">Địa Chỉ</th>
+                        <th scope="col">Tỉnh</th>
+                        <th scope="col">Quận/Huyện</th>
+                        <th scope="col">Ngày Đặt Hàng</th>
+                        <th scope="col">Trạng Thái</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Cập Nhật</th>
+                        <th scope="col">Chi tiêt</th>
+                     </tr>
+                  </thead>
+                  <tbody></tbody>
+               </table>
+            </div>
+         </div>
+      </main>
+
+      <!--Model update Product-->
+      <div id="updateProduct-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 5px 5px 10px rgb(208, 219, 219)">
+               <div class="modal-header">
+                  <h5 class="modal-title">Sửa Sản Phẩm</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Mã Sp</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inp-update-code" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Tên Sp</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inp-update-name" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Hãng</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <select name="" id="select-update-vendor" class="form-control">
+                           <option value="0">Apple</option>
+                           <option value="1">SamSung</option>
+                           <option value="2">Xiaomi</option>
+                           <option value="3">Oppo</option>
+                           <option value="4">Garmin</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Tồn Kho</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input name="" id="inp-update-quantityInStock" class="form-control" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Giá</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input name="" id="inp-update-buyPrice" class="form-control" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Miêu Tả</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <textarea name="" id="text-update-description" rows="7" class="form-control"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Hình Ảnh</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <div class="row img-update-modal">
+                           <!-- --------- TO DO ----------------
+                           <div class="col-4 mt-1">
+                              <img
+                                 src="${gLocalhost}/product-photos/iphone11_3.jpg"
+                                 alt=""
+                                 class="img-fluid"
+                              />
+                           </div> -->
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Upfile</label>
+                     </div>
+                     <div class="col-sm-9"><input type="file" id="inp-update-file" multiple /></div>
+                  </div>
+
+                  <div class="form-group row mt-4">
+                     <div class="col-sm-12 text-right">
+                        <button class="btn btn-success w-50" id="btn-update-modal">Cập Nhật</button>
+                        <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Hủy</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Vùng modal xóa dữ liệu-->
+      <div id="deleteOrder-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 5px 5px 10px rgb(208, 219, 219)">
+               <div class="modal-header">
+                  <h5 class="modal-title">Xóa Đơn Hàng</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <form>
+                     <p>Bạn có chắc chắn muốn xóa đơn này không?</p>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" id="btn-delete-modal">Xác Nhận</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Model Insert User-->
+      <div id="insertProduct-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 5px 5px 10px rgb(208, 219, 219)">
+               <div class="modal-header">
+                  <h5 class="modal-title">Thêm Sản Phẩm</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Dòng Sp</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <select name="" id="select-insert-productLine" class="form-control"></select>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Mã Sp</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inp-insert-code" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Tên Sp</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inp-insert-name" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Hãng</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <select name="" id="select-insert-vendor" class="form-control">
+                           <option value="0">Apple</option>
+                           <option value="1">SamSung</option>
+                           <option value="2">Xiaomi</option>
+                           <option value="3">Oppo</option>
+                           <option value="4">Garmin</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Tồn Kho</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input name="" id="inp-insert-quantityInStock" class="form-control" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Giá</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <input name="" id="inp-insert-buyPrice" class="form-control" />
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Miêu Tả</label>
+                     </div>
+                     <div class="col-sm-9">
+                        <textarea name="" id="text-insert-description" rows="7" class="form-control"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3">
+                        <label for="">Upfile</label>
+                     </div>
+                     <div class="col-sm-9"><input type="file" id="inp-insert-file" multiple /></div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-3"></div>
+                     <div class="col-sm-9">
+                        <div class="row img-insert-modal">
+                           <!-- --------- TO DO ----------------
+                           <div class="col-4 mt-1">
+                              <img
+                                 src="${gLocalhost}/product-photos/iphone11_3.jpg"
+                                 alt=""
+                                 class="img-fluid"
+                              />
+                           </div> -->
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="form-group row">
+                     <div class="col-sm-12 text-right">
+                        <button class="btn btn-success w-25" id="btn-insert-modal">Thêm</button>
+                        <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Vùng modal thông báo-->
+      <div id="notice-modal" class="modal" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 5px 5px 10px rgb(208, 219, 219)">
+               <div class="modal-body">
+                  <div>
+                     <h6 class="text-center">dsadsa</h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--   Core JS Files   -->
+      <script src="../assets/plugin/perfect-scrollbar.min.js"></script>
+
+      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/plugin/material-dashboard.min.js"></script>
+
+      <!-- InputMask -->
+      <script src="../assets/plugin/moment/moment.min.js"></script>
+      <script src="../assets/plugin/inputmask/jquery.inputmask.min.js"></script>
+
+      <script src="../assets/plugin/daterangepicker/daterangepicker.js"></script>
+      <script src="../assets/plugin/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+      <!-- Tempusdominus Bootstrap 4 -->
+      <script src="../assets/plugin/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+   </body>
+</html>
+<style>
+   /* PHẦN CSS CHUNG
+   -------------------------------- */
+   :root {
+      --main-color: #00483d;
+   }
+
+   body {
+      font-family: "Segoe UI";
+      background-color: #f4f4f4;
+   }
+
+   div#sidenav-collapse-main {
+      height: 100% !important;
+   }
+
+   #order-table {
+      background-color: white;
+      width: 100%;
+      font-size: 1em;
+      border-radius: 20px;
+      padding: 5px 0px;
+      box-shadow: 5px 5px 10px #888888;
+   }
+
+   #select-status-find,
+   #select-customer {
+      appearance: auto !important;
+   }
+
+   /* BOX */
+   .box {
+      max-width: 100%;
+      height: 100px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+      margin-top: 10px;
+   }
+
+   .box-waitConfirm {
+      background-image: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+   }
+
+   .box-delivery {
+      background-color: #3399ff;
+   }
+
+   .box-success {
+      background-color: #33cc66;
+   }
+
+   .box-totalPrice {
+      background-color: #eec900;
+   }
+
+   /* Modal notice */
+   #notice-modal > .modal-dialog {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+
+   .select-status {
+      background-color: inherit;
+      border: none;
+      outline: none;
+   }
+
+   th,
+   td {
+      text-align: center;
+      padding: 0.5em;
+   }
+
+   td {
+      border-top: 1px dashed rgb(172, 164, 164);
+   }
+
+   #order-table tbody tr:hover {
+      background-color: var(--main-color);
+      color: white;
+   }
+
+   .page-item .page-link {
+      color: #000000 !important;
+      margin: 0 0px !important;
+      border-radius: 0% !important;
+      width: 60px !important;
+   }
+
+   .input-group .input-group-text {
+      position: unset;
+      padding: 9px;
+   }
+</style>

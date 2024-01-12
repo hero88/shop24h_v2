@@ -1,0 +1,518 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+      <title>Admin: Dữ Liệu Sản Phẩm</title>
+
+      <!--     Fonts and icons     -->
+      <link
+         rel="stylesheet"
+         type="text/css"
+         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+      />
+
+      <!-- Material Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+
+      <!-- CSS Files -->
+
+      <link id="pagestyle" href="../assets/plugin/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+
+      <!--FONT AWESOME-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+      <!--Boottrap, JQuery-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <!--Line Chart-->
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+      <!-- daterange picker -->
+      <link rel="stylesheet" href="../assets/plugin/daterangepicker/daterangepicker.css" />
+
+      <!-- Bootstrap Color Picker -->
+      <link rel="stylesheet" href="../assets/plugin/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" />
+      <!-- Tempusdominus Bootstrap 4 -->
+      <link rel="stylesheet" href="../assets/plugin/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+
+      <!-- jQuery Monthpicker -->
+      <link href="../assets/plugin/monthPicker/MonthPicker.min.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="../assets/plugin/monthPicker/examples.css" />
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" />
+
+      <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+      <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script>
+      <script src="../assets/plugin/monthPicker/MonthPicker.min.js"></script>
+
+      <!-- SheetJS -->
+      <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.4/dist/xlsx.full.min.js"></script>
+
+      <!--My script-->
+      <script src="../assets/js/reportProductAdmin/reportProductAdmin.js"></script>
+   </head>
+
+   <body class="g-sidenav-show bg-gray-100">
+      <aside
+         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
+         style="background-color: var(--main-color) !important"
+         id="sidenav-main"
+      >
+         <div class="sidenav-header">
+            <i
+               class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+               aria-hidden="true"
+               id="iconSidenav"
+            ></i>
+            <a class="navbar-brand m-0" href="../home/home.html" target="_blank">
+               <img
+                  src="https://hoanghamobile.com/Content/web/img/logo-text.png"
+                  class="navbar-brand-img h-100"
+                  alt="main_logo"
+                  style="padding: 3px; background-color: white"
+               />
+            </a>
+         </div>
+
+         <hr class="horizontal light mt-0 mb-2" />
+
+         <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Quản Trị</h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/productAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-brands fa-product-hunt"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Sản Phẩm</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/orderAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-list"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Đơn Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/customerAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users"></i>
+                     </div>
+                     <span class="nav-link-text ms-1">Khách Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Báo Cáo</h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportOrderAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Đơn Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/reportCustomerAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">account_box</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Khách Hàng</span>
+                  </a>
+               </li>
+
+               <li class="nav-item active bg-gradient-primary">
+                  <a class="nav-link text-white" href="../dashboard/reportProductAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">featured_play_list</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Dữ Liệu Sản Phẩm</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/userAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user"></i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Tài Khoản</span>
+                  </a>
+               </li>
+
+               <li class="nav-item mt-3">
+                  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">
+                     Account pages
+                  </h6>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../dashboard/profileAdmin.html">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-address-card"></i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Hồ Sơ Cá Nhân</span>
+                  </a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="#" id="btn-logout">
+                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">login</i>
+                     </div>
+
+                     <span class="nav-link-text ms-1">Đăng Xuất</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </aside>
+
+      <main class="main-content border-radius-lg">
+         <!-- Navbar -->
+
+         <nav
+            class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
+            id="navbarBlur"
+            data-scroll="true"
+         >
+            <div class="container-fluid py-1 px-3">
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                     <li class="breadcrumb-item text-sm">
+                        <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                     </li>
+                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dữ Liệu Đơn Hàng</li>
+                  </ol>
+               </nav>
+               <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                  <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                     <div class="input-group input-group-outline"></div>
+                  </div>
+                  <ul class="navbar-nav justify-content-end">
+                     <li class="nav-item d-flex align-items-center">
+                        <a href="#" class="nav-link text-body font-weight-bold px-0 navbar-avatar"> </a>
+                     </li>
+                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                           <div class="sidenav-toggler-inner">
+                              <i class="sidenav-toggler-line"></i>
+                              <i class="sidenav-toggler-line"></i>
+                              <i class="sidenav-toggler-line"></i>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+
+         <div class="container-fluid py-4">
+            <!-- ---------------------------MAIN------------------------------------- -->
+            <!--REPORT BRAND BY DATE-->
+            <div class="row">
+               <div class="col-12 col-md-6">
+                  <div class="my-card">
+                     <div class="my-card-header">
+                        <h5 class="my-card-title"><i class="far fa-chart-bar"></i> Tỉ Lệ Thương Hiệu Theo Ngày</h5>
+                        <button class="btnToggle">
+                           <i class="fas fa-minus"></i>
+                        </button>
+                     </div>
+                     <div class="my-card-body">
+                        <!-- Nội dung chính của thẻ sẽ được thêm vào đây -->
+                        <div class="mx-2 row">
+                           <div class="col-lg-6 col-xl-8 col-12 my-2">
+                              <div class="input-group">
+                                 <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i> </span>
+                                 </div>
+                                 <input
+                                    type="text"
+                                    class="form-control float-right"
+                                    id="reservationDate"
+                                    readonly
+                                    style="background-color: white"
+                                 />
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-xl-4 col-12 my-2">
+                              <button class="btn btn-success" id="btn-findBrandProductByDate">Lọc</button>
+                              <button class="btn btn-primary" id="btn-exportBrandProductByDate">Tải Excel</button>
+                           </div>
+                        </div>
+                        <div id="myChartByDate" class="py-4">
+                           <canvas
+                              id="pieChart"
+                              style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%"
+                           ></canvas>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- --------------------------------------------------------------------------------------- -->
+
+               <!--REPORT BRAND BY MONTH-->
+               <div class="col-12 col-md-6 mt-6 mt-md-0">
+                  <div class="my-card">
+                     <div class="my-card-header">
+                        <h5 class="my-card-title"><i class="far fa-chart-bar"></i>Tỉ Lệ Thương Hiệu Theo Tháng</h5>
+                        <button class="btnToggle">
+                           <i class="fas fa-minus"></i>
+                        </button>
+                     </div>
+                     <div class="my-card-body">
+                        <!-- Nội dung chính của thẻ sẽ được thêm vào đây -->
+                        <div class="mx-2 row">
+                           <div class="col-lg-3 col-xl-4 col-6 my-2">
+                              <div class="input-group">
+                                 <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i> </span>
+                                 </div>
+                                 <input
+                                    type="text"
+                                    name=""
+                                    id="inp-startBrandtMonth"
+                                    class="form-control"
+                                    placeholder="Tháng Bắt Đầu"
+                                 />
+                              </div>
+                           </div>
+
+                           <div class="col-lg-3 col-xl-4 col-6 my-2">
+                              <div class="input-group">
+                                 <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i> </span>
+                                 </div>
+                                 <input
+                                    type="text"
+                                    name=""
+                                    id="inp-endBrandMonth"
+                                    class="form-control"
+                                    placeholder="Tháng Kết Thúc"
+                                 />
+                              </div>
+                           </div>
+
+                           <div class="col-lg-6 col-xl-4 col-12 my-2">
+                              <button class="btn btn-success" id="btn-findBrandByMonth">Lọc</button>
+                              <button class="btn btn-primary" id="btn-exportBrandProductByMonth">Tải Excel</button>
+                           </div>
+                        </div>
+                        <div id="myChartByMonth" class="py-4">
+                           <canvas
+                              id="donutChart"
+                              style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%"
+                           ></canvas>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- --------------------------------------------------------------------------------------- -->
+
+            <!--REPORT PRODUCT BY MONTH-->
+            <div class="my-card my-6">
+               <div class="my-card-header">
+                  <h5 class="my-card-title"><i class="far fa-chart-bar"></i>Top Sản Phẩm Theo Tháng</h5>
+                  <button class="btnToggle">
+                     <i class="fas fa-minus"></i>
+                  </button>
+               </div>
+               <div class="my-card-body">
+                  <!-- Nội dung chính của thẻ sẽ được thêm vào đây -->
+                  <div class="mx-2 row">
+                     <div class="col-lg-3 col-xl-4 col-6 my-2">
+                        <div class="input-group">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i> </span>
+                           </div>
+                           <input
+                              type="text"
+                              name=""
+                              id="inp-startProductMonth"
+                              class="form-control"
+                              placeholder="Tháng Bắt Đầu"
+                           />
+                        </div>
+                     </div>
+
+                     <div class="col-lg-3 col-xl-4 col-6 my-2">
+                        <div class="input-group">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i> </span>
+                           </div>
+                           <input
+                              type="text"
+                              name=""
+                              id="inp-endProductMonth"
+                              class="form-control"
+                              placeholder="Tháng Kết Thúc"
+                           />
+                        </div>
+                     </div>
+
+                     <div class="col-lg-6 col-xl-4 col-12 my-2">
+                        <button class="btn btn-success" id="btn-findProductByMonth">Lọc</button>
+                        <button class="btn btn-primary" id="btn-exportProductByMonth">Tải Excel</button>
+                     </div>
+                  </div>
+                  <div id="myChartProductByMonth"></div>
+               </div>
+            </div>
+
+            <!-- --------------------------------------------------------------------------------------- -->
+         </div>
+
+         <div id="spinner" class="spinner">
+            <div class="spinner-icon"></div>
+         </div>
+      </main>
+
+      <!--   Core JS Files   -->
+      <script src="../assets/plugin/perfect-scrollbar.min.js"></script>
+
+      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/plugin/material-dashboard.min.js"></script>
+
+      <!-- InputMask -->
+      <script src="../assets/plugin/moment/moment.min.js"></script>
+      <script src="../assets/plugin/inputmask/jquery.inputmask.min.js"></script>
+
+      <script src="../assets/plugin/daterangepicker/daterangepicker.js"></script>
+      <script src="../assets/plugin/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+      <!-- Tempusdominus Bootstrap 4 -->
+      <script src="../assets/plugin/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+      <!-- Chart LTE -->
+      <script src="../assets/plugin/ChartLTE/Chart.min.js"></script>
+   </body>
+</html>
+<style>
+   /* PHẦN CSS CHUNG
+   -------------------------------- */
+   :root {
+      --main-color: #00483d;
+   }
+
+   body {
+      font-family: "Segoe UI";
+   }
+
+   div#sidenav-collapse-main {
+      height: 100% !important;
+   }
+
+   .my-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: white;
+   }
+
+   .my-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--main-color);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+   }
+
+   .my-card-title {
+      margin: 0;
+      color: white;
+   }
+
+   .btnToggle {
+      background-color: white;
+      border-radius: 10px;
+   }
+
+   .input-group .input-group-text {
+      position: unset;
+      padding: 9px;
+   }
+
+   .ps__rail-x {
+      display: none !important;
+   }
+</style>
+<style>
+   .spinner {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+   }
+
+   .spinner-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 2s linear infinite;
+   }
+
+   @keyframes spin {
+      0% {
+         transform: rotate(0deg);
+      }
+      100% {
+         transform: rotate(360deg);
+      }
+   }
+
+   svg.main-svg {
+      height: 500px;
+   }
+
+   @media (max-width: 412px) {
+      svg.main-svg {
+         height: 550px;
+      }
+   }
+</style>
