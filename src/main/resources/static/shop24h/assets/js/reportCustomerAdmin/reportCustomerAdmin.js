@@ -1,4 +1,4 @@
-const gLocalhost = "http://localhost:8080";
+const gLocalhost = "https://shop24hv2-production.up.railway.app";
 
 var vDetailUser;
 
@@ -24,7 +24,7 @@ function checkExistTokenUser() {
 function callApiDetailUser(paramHeader) {
    $.ajax({
       async: false,
-      url: `http://localhost:8080/users/me`,
+      url: `https://shop24hv2-production.up.railway.app/users/me`,
       type: "GET",
       headers: paramHeader,
       success: function (res) {

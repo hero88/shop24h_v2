@@ -8,7 +8,7 @@ function formatNumber(input) {
 $(document).ready(function () {
    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
 
-   const gLocalhost = "http://localhost:8080";
+   const gLocalhost = "https://shop24hv2-production.up.railway.app";
 
    var gHeader;
    var isErrorDisplay = true;

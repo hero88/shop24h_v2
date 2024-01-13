@@ -1,5 +1,5 @@
 var vDetailUser;
-const gLocalhost = "http://localhost:8080";
+const gLocalhost = "https://shop24hv2-production.up.railway.app";
 
 //Kiểm tra user đã đăng nhập chưa
 checkExistTokenUser();

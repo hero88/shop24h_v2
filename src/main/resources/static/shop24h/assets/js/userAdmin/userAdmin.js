@@ -1,5 +1,5 @@
 var vDetailUser;
-const gLocalhost = "http://localhost:8080";
+const gLocalhost = "https://shop24hv2-production.up.railway.app";
 
 //Kiểm tra user đã đăng nhập chưa
 checkExistTokenUser();
@@ -22,7 +22,7 @@ function checkExistTokenUser() {
 //Gọi API thông tin chi tiết User
 function callApiDetailUser(paramHeader) {
    $.ajax({
-      url: `http://localhost:8080/users/me`,
+      url: `https://shop24hv2-production.up.railway.app/users/me`,
       type: "GET",
       async: true,
       headers: paramHeader,
