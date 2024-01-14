@@ -29,6 +29,8 @@ function callApiDetailUser(paramHeader) {
       headers: paramHeader,
       success: function (res) {
          vDetailUser = res;
+         console.log(" 1 ===>");
+         console.log(vDetailUser);
          handleAfterLoginSuccess(res);
       },
       error: function (xhr) {
@@ -78,6 +80,8 @@ $(document).ready(function () {
 
    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
    function onPageLoading() {
+         console.log(" 2 ===>");
+         console.log(vDetailUser);
       //Cập nhật avatar
       loadAvatar();
 
@@ -152,7 +156,8 @@ $(document).ready(function () {
 
    //cập nhật avatar
    function loadAvatar() {
-      console.log(vDetailUser);
+         console.log(" 3 ===>");
+         console.log(vDetailUser);
       // lấy họ tên khách hàng làm avartar
       let vStr = vDetailUser.fullNameCustomer.split(" ");
       let vLastElement = vStr[vStr.length - 1];
