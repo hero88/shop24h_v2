@@ -434,6 +434,8 @@ $(document).ready(function () {
 
    //cập nhật avatar
    function loadAvatar() {
+      console.log("2 ===>")
+      console.log(vDetailUser)
       // lấy họ tên khách hàng làm avartar
       let vStr = vDetailUser.fullNameCustomer.split(" ");
       let vLastElement = vStr[vStr.length - 1];
