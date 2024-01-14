@@ -27,7 +27,10 @@ function callApiDetailUser(paramHeader) {
       async: true,
       headers: paramHeader,
       success: function (res) {
+         
          vDetailUser = res;
+         console.log("1 ===>");
+         console.log(vDetailUser);
          handleAfterLoginSuccess(res);
       },
       error: function (xhr) {
