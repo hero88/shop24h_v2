@@ -1,57 +1,66 @@
 const gLocalhost = "https://shop24hv2-production.up.railway.app";
 
-var vDetailUser;
-
-//Kiểm tra user đã đăng nhập chưa
-checkExistTokenUser();
-
-//Kiểm tra user đăng nhập
-function checkExistTokenUser() {
-   var vLocalStorageUser = JSON.parse(localStorage.getItem("userSigninShop24h"));
-   if (vLocalStorageUser == null) {
-      window.location.href = "../../../error/error.html";
-   } else {
-      gHeader = {
-         Authorization: "Bearer " + vLocalStorageUser.accessToken,
-      };
-
-      //Lấy Thông tin user từ mã token
-      callApiDetailUser(gHeader);
-   }
-}
-
-//Gọi API thông tin chi tiết User
-function callApiDetailUser(paramHeader) {
-   $.ajax({
-      async: true,
-      url: `${gLocalhost}/users/me`,
-      type: "GET",
-      headers: paramHeader,
-      success: function (res) {
-         vDetailUser = res;
-         console.log(" 1 ===>");
-         console.log(vDetailUser);
-         handleAfterLoginSuccess(res);
-      },
-      error: function (xhr) {
-         window.location.href = "../../../error/error.html";
-      },
-   });
-}
-
-function handleAfterLoginSuccess(paramData) {
-   var vAdminOrModerator = paramData.roles.some((item) => item.name == "ROLE_MODERATOR" || item.name == "ROLE_ADMIN");
-   if (!vAdminOrModerator) {
-      window.location.href = "../../../error/error.html";
-   }
-}
-
 $(document).ready(function () {
+
+   var vDetailUser;
+
+   //Kiểm tra user đã đăng nhập chưa
+   checkExistTokenUser();
+   
+   //Kiểm tra user đăng nhập
+   function checkExistTokenUser() {
+      var vLocalStorageUser = JSON.parse(localStorage.getItem("userSigninShop24h"));
+      if (vLocalStorageUser == null) {
+         window.location.href = "../../../error/error.html";
+      } else {
+         gHeader = {
+            Authorization: "Bearer " + vLocalStorageUser.accessToken,
+         };
+   
+         //Lấy Thông tin user từ mã token
+         callApiDetailUser(gHeader);
+      }
+   }
+   
+   //Gọi API thông tin chi tiết User
+   function callApiDetailUser(paramHeader) {
+      $.ajax({
+         async: true,
+         url: `${gLocalhost}/users/me`,
+         type: "GET",
+         headers: paramHeader,
+         success: function (res) {
+            vDetailUser = res;
+   
+            handleAfterLoginSuccess(res);
+           
+         },
+         error: function (xhr) {
+            window.location.href = "../../../error/error.html";
+         },
+      });
+   }
+   
+   function handleAfterLoginSuccess(paramData) {
+      var vAdminOrModerator = paramData.roles.some((item) => item.name == "ROLE_MODERATOR" || item.name == "ROLE_ADMIN");
+      if (!vAdminOrModerator) {
+         window.location.href = "../../../error/error.html";
+      } else {
+          onPageLoading();
+      }
+   }
+
+
+
+
+
+
+
    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
    var isErrorChangePass = true;
 
    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
-   onPageLoading();
+  
 
    //Sự kiện khi click Đăng xuất
    $("#btn-logout").on("click", function () {
@@ -80,8 +89,6 @@ $(document).ready(function () {
 
    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
    function onPageLoading() {
-         console.log(" 2 ===>");
-         console.log(vDetailUser);
       //Cập nhật avatar
       loadAvatar();
 
@@ -156,8 +163,7 @@ $(document).ready(function () {
 
    //cập nhật avatar
    function loadAvatar() {
-         console.log(" 3 ===>");
-         console.log(vDetailUser);
+      console.log(vDetailUser);
       // lấy họ tên khách hàng làm avartar
       let vStr = vDetailUser.fullNameCustomer.split(" ");
       let vLastElement = vStr[vStr.length - 1];
