@@ -1,8 +1,6 @@
-const gLocalhost = "https://shop24hv2-production.up.railway.app";
+const gLocalhost = "http://localhost:8080";
 
-$(document).ready(function () {
-
-   var vDetailUser;
+var vDetailUser;
 
 //Kiểm tra user đã đăng nhập chưa
 checkExistTokenUser();
@@ -25,7 +23,7 @@ function checkExistTokenUser() {
 //Gọi API thông tin chi tiết User
 function callApiDetailUser(paramHeader) {
    $.ajax({
-      async: true,
+      async: false,
       url: `${gLocalhost}/users/me`,
       type: "GET",
       headers: paramHeader,
@@ -51,7 +49,7 @@ $(document).ready(function () {
    var isErrorChangePass = true;
 
    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
-  
+   onPageLoading();
 
    //Sự kiện khi click Đăng xuất
    $("#btn-logout").on("click", function () {
