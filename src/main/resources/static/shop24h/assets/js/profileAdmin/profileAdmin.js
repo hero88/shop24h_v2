@@ -23,7 +23,7 @@ function checkExistTokenUser() {
 //Gọi API thông tin chi tiết User
 function callApiDetailUser(paramHeader) {
    $.ajax({
-      async: true,
+      async: false,
       url: `${gLocalhost}/users/me`,
       type: "GET",
       headers: paramHeader,

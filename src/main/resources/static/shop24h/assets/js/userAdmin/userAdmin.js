@@ -24,7 +24,7 @@ function callApiDetailUser(paramHeader) {
    $.ajax({
       url: `https://shop24hv2-production.up.railway.app/users/me`,
       type: "GET",
-      async: true,
+      async: false,
       headers: paramHeader,
       success: function (res) {
          vDetailUser = res;

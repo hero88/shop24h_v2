@@ -24,7 +24,7 @@ function callApiDetailUser(paramHeader) {
    $.ajax({
       url: `${gLocalhost}/users/me`,
       type: "GET",
-      async: true,
+      async: false,
       headers: paramHeader,
       success: function (res) {
          vDetailUser = res;
