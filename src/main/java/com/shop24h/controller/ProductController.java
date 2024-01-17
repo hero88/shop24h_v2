@@ -40,8 +40,9 @@ import com.shop24h.model.Product;
 import com.shop24h.payload.request.ProductRequest;
 import com.shop24h.repository.ProductLineRepository;
 import com.shop24h.repository.ProductRepository;
-import com.shop24h.security.services.ProductService;
-import com.shop24h.security.services.StorageService;
+import com.shop24h.service.ProductService;
+import com.shop24h.service.StorageService;
+
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 

@@ -39,9 +39,9 @@ import com.shop24h.repository.CustomerRepository;
 import com.shop24h.repository.RoleRepository;
 import com.shop24h.repository.UserRepository;
 import com.shop24h.security.jwt.JwtUtils;
-import com.shop24h.security.services.EmailService;
 import com.shop24h.security.services.UserDetailsImpl;
 import com.shop24h.security.services.UserDetailsServiceImpl;
+import com.shop24h.service.EmailService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

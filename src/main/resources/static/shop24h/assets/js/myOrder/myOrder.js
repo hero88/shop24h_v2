@@ -7,7 +7,7 @@ $(document).ready(function () {
 
    //Thư viện raty
    var starRating = $("#star-rating").raty({
-      path: `${gLocalhost}/product-photos/`,
+      path: `/images/`,
    });
 
    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
@@ -178,7 +178,7 @@ $(document).ready(function () {
                   <div class="col-4 col-sm-2">
                   <a href="../product/product.html?name=${vOrderDetailIndex.productName}">
                      <img
-                        src="${gLocalhost}/product-photos/${vOrderDetailIndex.firstProductImg}"
+                        src="/images/${vOrderDetailIndex.firstProductImg}"
                         alt=""
                         class="img-fluid"
                      />
@@ -264,7 +264,7 @@ $(document).ready(function () {
                 <div class="col-4 col-sm-2">
                 <a href="../product/product.html?name=${vOrderDetailIndex.productName}">
                      <img
-                        src="${gLocalhost}/product-photos/${vOrderDetailIndex.firstProductImg}"
+                        src="/images/${vOrderDetailIndex.firstProductImg}"
                         alt=""
                         class="img-fluid"
                      />

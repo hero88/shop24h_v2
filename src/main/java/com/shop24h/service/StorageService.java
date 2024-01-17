@@ -1,4 +1,4 @@
-package com.shop24h.security.services;
+package com.shop24h.service;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -145,7 +145,7 @@ $(document).ready(function () {
             $(".img-update-modal").append(`
             <div class="col-4 pt-2">
             <img
-               src="${gLocalhost}/product-photos/${vFile[bI].name}"
+               src="/images/${vFile[bI].name}"
                alt=""
                class="img-fluid"
             />
@@ -191,7 +191,7 @@ $(document).ready(function () {
             $(".img-insert-modal").append(`
                <div class="col-4 pt-2">
                <img
-                  src="${gLocalhost}/product-photos/${vFile[bI].name}"
+                  src="/images/${vFile[bI].name}"
                   alt=""
                   class="img-fluid"
                />
@@ -399,7 +399,7 @@ $(document).ready(function () {
          $(".img-update-modal").append(`
          <div class="col-4 pt-2">
          <img
-            src="${gLocalhost}/product-photos/${paramData.productImg[bI]}"
+            src="/images/${paramData.productImg[bI]}"
             alt=""
             class="img-fluid"
          />

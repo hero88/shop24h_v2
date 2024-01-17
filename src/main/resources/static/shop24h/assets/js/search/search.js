@@ -360,7 +360,7 @@ $(document).ready(function () {
                   <div>
                      <img
                         class="card-img-top "
-                        src="${gLocalhost}/product-photos/${vProductIndex[bI].productImg[0]}"
+                        src="/images/${vProductIndex[bI].productImg[0]}"
                         alt="Card image cap"
                         style = " object-fit: contain; width:100%; padding: 10px; height: 200px"                     
                      />

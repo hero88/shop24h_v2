@@ -1,4 +1,4 @@
-package com.shop24h.security.services;
+package com.shop24h.service;
 
 import java.util.List;
 import java.util.Map;

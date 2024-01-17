@@ -194,7 +194,7 @@ $(document).ready(function () {
                <div class="card" style="border: none">
                   <img
                      class="card-img-top"
-                     src="${gLocalhost}/product-photos/${vProductIndex.productImg[0]}"
+                     src="/images/${vProductIndex.productImg[0]}"
                      alt="Card image cap"
                   />
                   <div class="card-body">
@@ -236,7 +236,7 @@ $(document).ready(function () {
                   <div>
                      <img
                         class="card-img-top "
-                        src="${gLocalhost}/product-photos/${paramProductMobile[bI].productImg[0]}"
+                        src="/images/${paramProductMobile[bI].productImg[0]}"
                         alt="Card image cap"
                         style = " object-fit: contain; width:100%; padding: 10px; height: 250px"                     
                      />
@@ -264,7 +264,7 @@ $(document).ready(function () {
                   <div class="row">
                      <div class="col-sm-6 ">
                         <img
-                           src="${gLocalhost}/product-photos/${paramProductWatch[bI].productImg[0]}"
+                           src="/images/${paramProductWatch[bI].productImg[0]}"
                            class="card-img-top"
                            style = " object-fit: contain; width:100%; height: 200px" 
 

@@ -401,18 +401,18 @@ $(document).ready(function () {
    }
 
    //Gọi Api theo product và số điểm sao
-   function callApiRatingProductByNumber(paramNumber) {
-      $.ajax({
-         url: `${gLocalhost}/rating/${gProductIdClick}/${paramNumber}`,
-         type: "GET",
-         success: function (res) {
-            loadRatingByNumber(res);
-         },
-         error: function (xhr) {
-            console.log(xhr);
-         },
-      });
-   }
+      function callApiRatingProductByNumber(paramNumber) {
+         $.ajax({
+            url: `${gLocalhost}/rating/${gProductIdClick}/${paramNumber}`,
+            type: "GET",
+            success: function (res) {
+               loadRatingByNumber(res);
+            },
+            error: function (xhr) {
+               console.log(xhr);
+            },
+         });
+      }
 
    //Gọi API xóa rating
    function callApiDeleteRatingById(paramId, paramParent) {
@@ -500,7 +500,7 @@ $(document).ready(function () {
                render: function (data) {
                   var starRating = $(`<div class="star-rating"></div> `);
                   $(starRating).raty({
-                     path: `${gLocalhost}/product-photos/`,
+                     path: `/images/`,
                      score: data,
                      readOnly: true,
                      hints: [data, data, data, data, data],
@@ -563,7 +563,7 @@ $(document).ready(function () {
          $(".img-update-modal").append(
          `<div class="col-4 pt-2" style="position:relative">
          <img
-            src="${gLocalhost}/product-photos/${paramData.productImg[bI]}"
+            src="/images/${paramData.productImg[bI]}"
             alt=""  
             class="img-fluid"
             data-key-random=${vKeyRandom}
@@ -591,7 +591,7 @@ $(document).ready(function () {
                <span class="rating-delete">Xóa</span>         
             </div>
          `);
-            $(`.raty-${bI}`).raty({ path: `${gLocalhost}/product-photos/`, score: paramData[bI].ratingNumber, readOnly: true });
+            $(`.raty-${bI}`).raty({ path: `/images/`, score: paramData[bI].ratingNumber, readOnly: true });
          }
       } else {
          $(".body-rating").append(`<div class="text-center"><p>Chưa có đánh giá</p></div>`);
@@ -772,7 +772,7 @@ $(document).ready(function () {
    //Show thông tin hàng con trong table
    function showInfoInRowChild(paramObj) {
       var imagesHTML = paramObj.productImg
-         .map((img) => `<img src="${gLocalhost}/product-photos/${img}" alt="" style="width: 100px" />`)
+         .map((img) => `<img src="/images/${img}" alt="" style="width: 100px" />`)
          .join("");
       return `
          <table class="table" style="background-color: white">

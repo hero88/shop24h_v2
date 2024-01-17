@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shop24h.model.Customer;
 import com.shop24h.repository.CustomerRepository;
 import com.shop24h.repository.UserRepository;
-import com.shop24h.security.services.CustomerService;
+import com.shop24h.service.CustomerService;
 
 import java.util.Optional;
 import java.util.stream.Collectors;

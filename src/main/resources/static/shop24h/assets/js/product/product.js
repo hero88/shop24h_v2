@@ -334,7 +334,7 @@ $(document).ready(function () {
 
    // Load data sản phẩm vào trang product
    function loadDataProductToProduct(paramDataProduct) {
-      $("#star-rating").raty({ path: `${gLocalhost}/product-photos/`, score: paramDataProduct.averageRating, readOnly: true });
+      $("#star-rating").raty({ path: `/images/`, score: paramDataProduct.averageRating, readOnly: true });
       $("#score-product").html(paramDataProduct.averageRating.toFixed(1));
       $("#main-detail h4").text(paramDataProduct.productName);
       $("#main-detail h3").text(paramDataProduct.buyPrice.toLocaleString() + " đ");
@@ -345,14 +345,14 @@ $(document).ready(function () {
          $("#mainSwiper").append(
             `<div class="swiper-slide">
                    <img
-                       src="${gLocalhost}/product-photos/${vParamImg[bI]}"
+                       src="/images/${vParamImg[bI]}"
                    />
                </div>`
          );
          $("#thumbSwiper").append(
             `<div class="swiper-slide">
             <img
-                src="${gLocalhost}/product-photos/${vParamImg[bI]}"
+                src="/images/${vParamImg[bI]}"
             />
         </div>`
          );
@@ -381,7 +381,7 @@ $(document).ready(function () {
           </div>
         `);
 
-         $(`.raty-${i}`).raty({ path: `${gLocalhost}/product-photos/`, score: vRatingIndex.ratingNumber, readOnly: true });
+         $(`.raty-${i}`).raty({ path: `/images/`, score: vRatingIndex.ratingNumber, readOnly: true });
 
          if (vRatingIndex.comments.length != 0) {
             for (let bU = 0; bU < vRatingIndex.comments.length; bU++) {

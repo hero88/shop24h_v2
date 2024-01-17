@@ -403,7 +403,7 @@ $(document).ready(function () {
             <span style="position: absolute; top: 5px; right: 0px; z-index: 100; color:red; cursor: pointer;"><i class="fa-solid fa-square-minus"></i></span>
             
             <div class="col-lg-1 col-md-2 col-sm-3 col-4"   style="padding:1rem">
-                <img src="${gLocalhost}/product-photos/${
+                <img src="/images/${
                    paramDataOrderDetail.productImg[0]
                 }" alt="" class="img-fluid" />
             </div>

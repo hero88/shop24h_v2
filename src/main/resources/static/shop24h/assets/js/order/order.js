@@ -304,7 +304,7 @@ $(document).ready(function () {
                <span style="position: absolute; right:15px; z-index: 100;padding: 2px; color:red; cursor: pointer" ><i class="fa-solid fa-square-minus"></i></span>
                
                 <div class="col-sm-3 col-4">
-                   <img src="${gLocalhost}/product-photos/${
+                   <img src="/images/${
                       product.gProduct.productImg[0]
                    }" alt="" class="img-fluid" />
                 </div>

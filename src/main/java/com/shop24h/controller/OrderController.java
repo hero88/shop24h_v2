@@ -37,7 +37,7 @@ import com.shop24h.repository.OrderDetailRepository;
 import com.shop24h.repository.OrderRepository;
 import com.shop24h.repository.ProvinceRepository;
 import com.shop24h.repository.WardRepository;
-import com.shop24h.security.services.CustomPage;
+import com.shop24h.service.CustomPage;
 
 
 @RestController
