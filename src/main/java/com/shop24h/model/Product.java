@@ -188,6 +188,14 @@ public class Product {
         }
     }
 
+    public void addProductImage(String image) {
+        this.productImg.add(image);
+    }
+
+    public void removeProductImage(String image) {
+        this.productImg.remove(image);
+    }
+
     
     
     

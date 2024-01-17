@@ -3,7 +3,7 @@ package com.shop24h.service;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface StorageFirebaseService {
-    String uploadImage(MultipartFile file) throws Exception;
+    String uploadImage(MultipartFile file);
 
     byte[] downloadImage(String imageName); 
 

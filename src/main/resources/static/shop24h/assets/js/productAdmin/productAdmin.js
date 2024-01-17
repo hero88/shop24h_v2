@@ -26,11 +26,8 @@ function callApiDetailUser(paramHeader) {
       type: "GET",
       async: false,
       headers: paramHeader,
-      success: function (res) {
-         
+      success: function (res) {  
          vDetailUser = res;
-         console.log("1 ===>");
-         console.log(vDetailUser);
          handleAfterLoginSuccess(res);
       },
       error: function (xhr) {
@@ -65,6 +62,7 @@ $(document).ready(function () {
    var gListImgUpdate = [];
    var gListNameImgOld = [];
    var gListNameImgRemove = [];
+   var gCountImgUpdate;
 
    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
    onPageLoading();
@@ -121,6 +119,7 @@ $(document).ready(function () {
       gListImgUpdate = [];
       gListNameImgOld = [];
       gListNameImgRemove = [];
+      gCountImgUpdate = 0;
       $("#updateProduct-modal").modal("show");
       $(".notice-warning").remove();
       vIsDisplay = true;
@@ -130,6 +129,7 @@ $(document).ready(function () {
 
    //Sự kiện khi click nút update trên modal update
    $("#btn-update-modal").on("click", function () {
+      gCountImgUpdate = $(".img-update-modal").children().length;
       let vData = getDataInUpdateModal();
       let vValidate = valvValidateData("update");
       if (vValidate) {
@@ -137,7 +137,7 @@ $(document).ready(function () {
       }
    });
 
-   //Sự kiện khi click button cập nhật file trong modal update
+   //Sự kiện khi click button cập nhật image trong modal update
    $("#inp-update-file").on("change", function () {
       previewImagesUpdate(this);
    });
@@ -186,12 +186,13 @@ $(document).ready(function () {
       // Xóa phần tử cha khỏi DOM
       parentDiv.remove();
 
-
-      // if(gListImgAdd.length <= 5){
-      //    vIsDisplay = true;
-      //    $(".warning-max-img").remove();
-      //
-      // }
+      gCountImgUpdate = $(".img-update-modal").children().length;
+  
+      if(gCountImgUpdate <= 5){
+         vIsDisplay = true;
+         $(".warning-max-img").remove();
+      
+      }
 
 
    });
@@ -238,8 +239,6 @@ $(document).ready(function () {
          let vFormData = getDataInInsertModal();
          callApiCreateProduct(vFormData);
       } 
-      // uploadFile();
-
    });
 
 
@@ -352,6 +351,7 @@ $(document).ready(function () {
       $.ajax({
          url: `${gLocalhost}/createProduct/${paramProduct.get("productLineId")}`,
          type: "POST",
+         headers: gHeader,
          data: paramProduct,
          processData: false, // Không xử lý dữ liệu
          contentType: false, // Không đặt loại nội dung
@@ -381,13 +381,17 @@ $(document).ready(function () {
       });
    }
 
-   function callApiUpdateProduct(paramProduct) {
+   function callApiUpdateProduct(paramProduct) {   
+      for (var pair of paramProduct.entries()) {
+         console.log(pair[0] + ', ' + pair[1]);
+     }
       $.ajax({
          url: `${gLocalhost}/updateProduct/${gProductIdClick}`,
          type: "PUT",
          headers: gHeader,
-         contentType: "application/json",
-         data: JSON.stringify(paramProduct),
+         data: paramProduct,
+         processData: false, // Không xử lý dữ liệu
+         contentType: false, // Không đặt loại nội dung
          success: function (res) {
             $("#updateProduct-modal").modal("hide");
             showNotice("Cập Nhật Thành Công");
@@ -634,23 +638,31 @@ $(document).ready(function () {
 
    //Thu thập thông tin trong modal Update
    function getDataInUpdateModal() {
-      let vData = {};
-      vData.productCode = $("#inp-update-code").val().trim();
-      vData.productName = $("#inp-update-name").val().trim();
-      vData.productDescripttion = $("#text-update-description").val().trim();
-      vData.productVendor = $("#select-update-vendor option:selected").text();
+      let formData = new FormData();
+
+      // Thêm các trường dữ liệu vào formData
+      formData.append("productCode", $("#inp-update-code").val().trim());
+      formData.append("productName", $("#inp-update-name").val().trim());
+      formData.append("productDescripttion", $("#text-update-description").val().trim());
+      formData.append("productVendor", $("#select-update-vendor option:selected").text());   
       let vOriginalQuantity = $("#inp-update-quantityInStock").val();
-
-      vData.quantityInStock = vOriginalQuantity.replace(/,/g, "");
+      formData.append("quantityInStock", vOriginalQuantity.replace(/,/g, ""));      
       let vOriginalPrice = $("#inp-update-buyPrice").val();
-      vData.buyPrice = vOriginalPrice.replace(/,/g, "");
-      vData.productImg = [];
-
-      $(".img-update-modal img").each(function () {
-         var src = $(this).attr("src");
-         vData.productImg.push(src.split("/").pop());
-      });
-      return vData;
+      formData.append("buyPrice", vOriginalPrice.replace(/,/g, ""));
+      
+      // Duyệt qua mảng gListImgUpdate và thêm từng file vào FormData
+      if(gListImgUpdate.length > 0){
+         for (let i = 0; i < gListImgUpdate.length; i++) {
+            formData.append('productImg', gListImgUpdate[i].file);
+         }
+      }
+      //Duyệt qua mảng gListNameImgRemove để xóa các file hình ảnh cũ
+      if(gListNameImgRemove.length > 0){
+         let arrayAsStringNameImgRemove = gListNameImgRemove.join(',');
+         formData.append('productImgRemove', arrayAsStringNameImgRemove);
+      }
+        
+      return formData;  
    }
 
    var vIsDisplay = true;
@@ -662,11 +674,14 @@ $(document).ready(function () {
          var vQuantityProduct = $("#inp-insert-quantityInStock");
          var vPriceProduct = $("#inp-insert-buyPrice");
          var vImageAdd = $("#inp-insert-file");
+         var countImg = gListImgAdd.length;
       } else {
          var vCodeProduct = $("#inp-update-code");
          var vNameProduct = $("#inp-update-name");
          var vQuantityProduct = $("#inp-update-quantityInStock");
          var vPriceProduct = $("#inp-update-buyPrice");
+         var vImageAdd = $("#inp-update-file");
+         var countImg = gCountImgUpdate;
       }
 
       // Thêm sự kiện input cho trường mã sản phẩm
@@ -736,7 +751,7 @@ $(document).ready(function () {
          return false;
       }
 
-      if(gListImgAdd.length > 5){
+      if(countImg > 5){
          if (vIsDisplay) {
             vImageAdd.parent().append(`<span style="color:red" class="notice-warning warning-max-img">Tối đa  5 hình</span>`);
             vIsDisplay = false;

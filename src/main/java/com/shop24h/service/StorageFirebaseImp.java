@@ -13,11 +13,16 @@ import com.google.firebase.cloud.StorageClient;
 public class StorageFirebaseImp implements StorageFirebaseService {
 
     @Override
-    public String uploadImage(@RequestParam("file") MultipartFile file) throws IOException {     
-        String fileName = generateFileName(file.getOriginalFilename());    
-        StorageClient.getInstance().bucket().create(fileName, file.getBytes(), file.getContentType());
-    
-        return fileName;
+    public String uploadImage(@RequestParam("file") MultipartFile file)  {
+        try {
+            String fileName = generateFileName(file.getOriginalFilename());    
+            StorageClient.getInstance().bucket().create(fileName, file.getBytes(), file.getContentType());
+            return fileName;
+            
+        } catch (Exception e) {
+            return e.getMessage();
+        }    
+        
     }
 
     @Override

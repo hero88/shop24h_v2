@@ -299,48 +299,17 @@ public class    ProductController {
         }
     }
     
-//Cập nhật sản phẩm theo ID
-@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
-@PutMapping("/updateProduct/{productId}")
-public ResponseEntity<Object> updateProduct(@PathVariable int productId, @RequestBody Product updateProduct){
-    
-    Optional<Product> productFound = productRepository.findById(productId);
-    if(productFound.isPresent()){
-        Product product = productFound.get();
-
-        // Kiểm tra tên sản phẩm trùng lặp
-        Product existingProductName = productRepository.findByProductName(updateProduct.getProductName());
-        if (existingProductName != null && existingProductName.getId() != productId) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Tên sp đã tồn tại");
-        }
-
-        // Kiểm tra code sản phẩm trùng lặp
-        Product existingProductCode = productRepository.findByProductCode(updateProduct.getProductCode());
-        if (existingProductCode != null && existingProductCode.getId() != productId) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Mã Sp đã tồn tại");
-        }
-        
-
-        // Cập nhật thông tin sản phẩm
-        product.setProductImg(updateProduct.getProductImg());
-        product.setProductCode(updateProduct.getProductCode());
-        product.setProductName(updateProduct.getProductName());
-        product.setProductDescripttion(updateProduct.getProductDescripttion());
-        product.setProductVendor(updateProduct.getProductVendor());
-        product.setQuantityInStock(updateProduct.getQuantityInStock());
-        product.setBuyPrice(updateProduct.getBuyPrice());
-
-        return ResponseEntity.ok(productRepository.save(product));
+    //Cập nhật sản phẩm theo ID
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
+    @PutMapping(value = "/updateProduct/{productId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Object> updateProduct(@PathVariable int productId, @RequestParam Map<String, String> fileMap, @RequestParam(required = false) MultipartFile[] productImg){
+        return productService.updateProduct(productId, fileMap, productImg);
     }
-    else {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-    }
-}
         
     //Tạo Sản phẩm theo productLineId
     // @PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
     @PostMapping(value = "/createProduct/{productLineId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> createProduct(@RequestParam Map<String, String> fileMap, @RequestParam MultipartFile[] productImg, @PathVariable int productLineId) {
+    public ResponseEntity<?> createProduct(@RequestParam Map<String, String> fileMap, @RequestParam(required = false) MultipartFile[] productImg, @PathVariable int productLineId) {
             return productService.createProduct(fileMap, productImg,  productLineId);
     }
 
@@ -361,14 +330,8 @@ public ResponseEntity<Object> updateProduct(@PathVariable int productId, @Reques
     //Xóa Sản phẩm theo product Id
     @PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
     @DeleteMapping("/deleteProduct/{productId}")
-    public ResponseEntity<Object> deleteProduct(@PathVariable int productId){
-        try {
-            productRepository.deleteById(productId);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-
+    public ResponseEntity<String> deleteProduct(@PathVariable int productId){
+        return productService.deleteProduct(productId);
     }
 
     //Tính tổng sản phẩm  bán theo tháng dựa theo thương hiệu 
