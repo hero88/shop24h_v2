@@ -35,7 +35,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 
 
     //Tính tổng sản phẩm  bán theo tháng dựa theo thương hiệu 
-    @Query(value = "SELECT products.product_vendor AS productVendor, SUM(od.quantity_order) AS Total ,DATE_FORMAT(o.order_date, '%Y-%m') AS orderMonth  FROM order_details AS od INNER JOIN products ON products.id = od.product_id INNER JOIN orders AS o ON od.order_id = o.id WHERE DATE_FORMAT(o.order_date, '%Y-%m') BETWEEN :startMonth AND :endMonth GROUP BY products.product_vendor", nativeQuery=true)
+    @Query(value = "SELECT products.product_vendor AS productVendor, SUM(od.quantity_order) AS Total ,DATE_FORMAT(o.order_date, '%Y-%m') AS orderMonth  FROM order_details AS od INNER JOIN products ON products.id = od.product_id INNER JOIN orders AS o ON od.order_id = o.id WHERE DATE_FORMAT(o.order_date, '%Y-%m') BETWEEN :startMonth AND :endMonth GROUP BY products.product_vendor, orderMonth", nativeQuery=true)
     List<TotalBrandProductByMonth> getTotalBrandProductByMonth(@Param("startMonth") Date startMonth, @Param("endMonth") Date endMonth);
 
     public static interface TotalBrandProductByMonth{
@@ -44,7 +44,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     }
 
     //Tính tổng sản phẩm  bán theo ngày dựa theo thương hiệu 
-    @Query(value = "SELECT products.product_vendor AS productVendor, SUM(od.quantity_order) AS Total, DATE(o.order_date) AS orderDate  FROM order_details AS od INNER JOIN products ON products.id = od.product_id INNER JOIN orders AS o ON od.order_id = o.id WHERE DATE(o.order_date) BETWEEN :startDate AND :endDate GROUP BY products.product_vendor", nativeQuery=true)
+    @Query(value = "SELECT products.product_vendor AS productVendor, SUM(od.quantity_order) AS Total, DATE(o.order_date) AS orderDate  FROM order_details AS od INNER JOIN products ON products.id = od.product_id INNER JOIN orders AS o ON od.order_id = o.id WHERE DATE(o.order_date) BETWEEN :startDate AND :endDate GROUP BY products.product_vendor, orderDate", nativeQuery=true)
     List<TotalBrandProductByMonth> getTotalBrandProductByDate(@Param("startDate") Date startMonth, @Param("endDate") Date endMonth);
 
     public static interface TotalBrandProductByDate{
@@ -53,7 +53,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     }
 
     //Tính sản phẩm  bán theo tháng 
-    @Query(value = "SELECT  DATE_FORMAT(o.order_date, '%Y-%m') AS orderMonth, products.product_name AS productName, SUM(od.quantity_order) AS Total  FROM order_details AS od INNER JOIN products ON products.id = od.product_id INNER JOIN orders AS o ON od.order_id = o.id WHERE  DATE_FORMAT(o.order_date, '%Y-%m') BETWEEN :startMonth AND :endMonth GROUP BY products.product_name ORDER BY `Total` DESC LIMIT 10", nativeQuery=true)
+    @Query(value = "SELECT  DATE_FORMAT(o.order_date, '%Y-%m') AS orderMonth, products.product_name AS productName, SUM(od.quantity_order) AS Total  FROM order_details AS od INNER JOIN products ON products.id = od.product_id INNER JOIN orders AS o ON od.order_id = o.id WHERE  DATE_FORMAT(o.order_date, '%Y-%m') BETWEEN :startMonth AND :endMonth GROUP BY products.product_name, orderMonth ORDER BY `Total` DESC LIMIT 10", nativeQuery=true)
     List<ProductByMonth> getProductByMonth(@Param("startMonth") Date startMonth, @Param("endMonth") Date endMonth);
 
     public static interface ProductByMonth{
